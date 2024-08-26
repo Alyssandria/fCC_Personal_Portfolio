@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shrikhand&display=swap');
+
+/* RESETS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* UTILITY CLASSES */
+.parallax-effect{
+    animation: parallax-effect linear both;
+    animation-timeline: scroll();
+}
+
+
+/* CONTENT STYLES */
+.wrapper{
+    width: 100%;
+    height: 500svh;
+    overflow-x: clip;
+}
+
+
+.site-nav{
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background: red;
+    display: none;
+}
+
+.wrapper img{
+    position: absolute;
+    width: 100%;
+    height: 100svh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.canyon{
+    z-index: 1;
+    --parallax-speed: 10;
+}
+.sky{
+    z-index: -2;
+    --parallax-speed: 30;
+}
+
+.moon{
+    z-index: -1;
+    width: 50% !important;
+    bottom: 15%;
+    height: unset !important;
+    left: 50%;
+    --parallax-speed: -20;
+}
+
+
+.welcome-section{
+    height: 100vh;
+    width: 100%;
+}
+
+.about-me{
+    background: #0F0015;
+    width: 100%;
+    height: 100svh;
+    z-index: 1;
+    position: relative;
+
+}
+
+.welcome-section > h1{
+    text-align: center;
+    transform: translateY(300px);
+    font-family: Poppins, sans-serif;
+    color: white;
+    font-size: 3.5rem;
+    --parallax-speed: 40;
+}
+
+
+
+/* MEDIA QUERIES */
+@media (prefers-reduced-motion: no-preference){
+    @keyframes parallax-effect {
+        to{
+            transform: translateY(
+                calc(var(--parallax-speed) * 100px)
+            );
+
+            scale: 2;
+        }
+    }
+}
+
+
