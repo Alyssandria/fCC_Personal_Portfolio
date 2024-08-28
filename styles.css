@@ -5,6 +5,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow-x: clip;
 }
 
 /* UTILITY CLASSES */
@@ -65,8 +66,7 @@
 /* CONTENT STYLES */
 .wrapper{
     width: 100%;
-    height: 500svh;
-    overflow-x: clip;
+
 }
 
 
@@ -92,7 +92,7 @@
 }
 .sky{
     z-index: -2;
-    --parallax-speed: 30;
+    --parallax-speed: 25;
 }
 
 .moon{
@@ -318,6 +318,57 @@ figure .code-wrapper{
 }
 
 /* CONTACTS STYLES */
+.contacts-section{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    background-color: #351E3E;
+    padding: 4rem 2rem;
+}
+
+.contacts-section .section-content .section-header{
+    font-family: Shrikhand, sans-serif;
+    font-size: 2rem;
+    color: white;
+}
+
+.contacts-section .section-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.contacts-section .contact-links{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style-type: none;
+}
+
+.contacts-section .contact-links #profile-link{
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+}
+.contacts-section .contact-links #profile-link i{
+    transition: all .3s ease-in-out;
+    scale: 1;
+}
+
+/* FOOTER STYLES */
+
+footer{
+    font-size: .8rem;
+    color: grey;
+    font-family: Shrikhand, sans-serif;
+    text-align: center;
+    padding: 1rem 2rem;
+}
 
 
 
@@ -325,6 +376,10 @@ figure .code-wrapper{
 .projects-section .project-links:hover .project-header{
     height: 50%;
     transition: all .5s ease;
+}
+
+.contacts-section .contact-links #profile-link:hover i{
+    font-size: 2.5rem;
 }
 
 
@@ -335,10 +390,19 @@ figure .code-wrapper{
         scroll-behavior: smooth;
     }
     @keyframes parallax-effect {
+        
+        60%{
+            opacity: 1;
+        }
+
+        80%{
+            opacity: 0;
+        }
         to{
             transform: translateY(
                 calc(var(--parallax-speed) * 100px)
             );
+            opacity: 0;
         }
     }
 
