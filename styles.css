@@ -134,7 +134,7 @@
 .about-me::before{
     content: "";
     width: 120%;
-    height: 10%;
+    height: 20%;
     top: -50px;
     left: -10%;
     position: absolute;
