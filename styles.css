@@ -5,7 +5,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    overflow-x: clip;
 }
 
 /* UTILITY CLASSES */
@@ -35,7 +34,7 @@
 }
 
 .reveal-fade{
-    animation: reveal-fade  both;
+    animation: reveal-fade both;
     animation-timeline: view();
 }
 .code-comments{
@@ -47,7 +46,7 @@
 }
 
 .code-name{
-    color: #197FD3;
+    color: #379ff5;
 }
 
 .code-value{
@@ -67,6 +66,7 @@
 .wrapper{
     width: 100%;
     height: 500svh;
+    overflow-x: clip;
 }
 
 
@@ -126,7 +126,6 @@
     padding: 4rem 2rem;
     background: #0F0015;
     width: 100%;
-    height: 100svh;
     z-index: 1;
     position: relative;
 }
@@ -141,19 +140,19 @@
     filter: blur(15px);
     background: #0F0015;
 }
-.section-content{
+.about-me .section-content{
     width: 100%;
     height: 100%;
     margin: 0 auto;
 }
 
-.section-content p, .section-content h2{
+.about-me .section-content p, .about-me .section-content h2{
     text-align: center;
     font-family: Poppins, sans-serif;
     color: rgba(196, 196, 196, 0.2);
 }
 
-.section-content h2{
+.about-me .section-content h2{
     font-size: 1.85rem;
     margin-bottom: 1em;
 }
@@ -166,7 +165,7 @@ p span.scroll-reveal{
     animation-range: cover 40% contain 50%;
 }
 
-.section-content header{
+.about-me .section-content header{
     margin-bottom: 4em;
 }
 
@@ -174,12 +173,10 @@ figure{
     width: 100%;
 }
 
-figure .section-content{
-    scale: .2;
+figure .code-wrapper{
     width: 100%;
     padding: 2rem;
     height: unset;
-    opacity: 0;
     border-radius: 10px;
     box-shadow: 0px 10px 10px #2f2e2e8e;
     background: #331A3D;
@@ -220,15 +217,114 @@ figure .section-content{
     color: #8B8B8B;
 }
 
-.about-me .section-content.reveal-fade{
+.about-me .code-wrapper.reveal-fade{
     animation-range: cover 30% contain 50%;
 }
 
 /* PROJECTS SECTION Styles */
 .projects-section{
+    padding: 4rem 0 0;
     width: 100%;
-    height: 100vh;
     background: white;
+    position: relative;
+    z-index: 1;
+}
+
+.projects-section .section-content{
+    width: 100%;
+    height: 100%;
+}
+
+.projects-section .section-header{
+    padding: 0 2rem;
+    margin: unset;
+    margin-bottom: 4rem;
+    width: 100%;
+    text-align: center;
+}
+
+.projects-section .section-content .section-header {
+    font-family: Shrikhand, sans-serif;
+    color: #202020;
+    font-size: 1.85rem;
+}
+
+.projects-section .section-content .section-header span{
+    color: #331A3D;
+}
+
+.projects-wrapper{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    width: 100%;
+    height:fit-content;
+    background-color: #0F0015;
+}
+
+.projects-wrapper .project-links .project{
+    height: 250px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.project .project-header{
+    font-family: Poppins, sans-serif;
+    width: 100%;
+    position: absolute;
+    height: 30%;
+    bottom: 0;
+    background-color: #200D27;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    align-items: center;
+    color: white;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.project .project-header h3{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+
+.project-links:nth-child(1) .project{
+    background: url("https://github.com/Alyssandria/images_repo/blob/main/Technical%20Documentation%20Preview.png?raw=true")  #30303057 center/cover;
+    background-blend-mode: multiply;
+    animation-range: cover 10% contain 20%;
+    
+}
+.project-links:nth-child(2) .project{
+    background: url("https://github.com/Alyssandria/images_repo/blob/main/Stride%20Preview.png?raw=true")  #30303057 45%/cover;
+    background-blend-mode: multiply;
+    animation-range: cover 20% contain 40%;
+}
+
+.project-links:nth-child(3) .project{
+    background: url("https://github.com/Alyssandria/images_repo/blob/main/Recipe%20Preview.png?raw=true")  #30303057 center/cover;
+    background-blend-mode: multiply;
+    animation-range: cover 30% contain 50%;
+}
+.project-links:nth-child(4) .project{
+    background: url("https://github.com/Alyssandria/images_repo/blob/main/Accordion%20Preview.png?raw=true")  #30303057 center/cover;
+    background-blend-mode: multiply;
+    animation-range: cover 40% contain 45%;
+}
+
+/* CONTACTS STYLES */
+
+
+
+/* HOVER STATES */
+.projects-section .project-links:hover .project-header{
+    height: 50%;
+    transition: all .5s ease;
 }
 
 
@@ -253,6 +349,11 @@ figure .section-content{
     }
 
     @keyframes reveal-fade{
+        from{
+            opacity: 0;
+            scale: .2;
+        }
+        
         to{
             opacity: 1;
             scale: 1;
